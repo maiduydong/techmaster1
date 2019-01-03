@@ -39,6 +39,25 @@ const reducer =(state=defaultState, action) =>{
                     return {...e, memorized: !e.memorized}
                 })
             };
+        case 'IS_ADDING':
+            return {
+                ...state,
+                isAdding: !state.isAdding
+                
+            };
+        case 'ADD_WORD':
+            return{
+                ...state,
+                arrWords:[
+                    {
+                        id:state.arrWords.length +1,
+                        en: action.en,
+                        vn: action.vn,
+                        memorized:false,
+                        isShow:false
+                    }
+                ].concat(state.arrWords)
+            }
         default:
             break;
     }
