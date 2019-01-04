@@ -58,6 +58,14 @@ const reducer =(state=defaultState, action) =>{
                     }
                 ].concat(state.arrWords)
             }
+            case 'IS_SHOW':
+            return {
+                ...state,
+                arrWords: state.arrWords.map(e=>{
+                    if (e.id !==action.id) return e;
+                    return {...e, isShow: !e.isShow}
+                })
+            };
         default:
             break;
     }
